@@ -8,6 +8,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 import com.bmem.service.models.Trottinette;
+import com.bmem.service.repository.TrottinetteRepository;
+
 
 @SpringBootApplication
 public class MicroServicesApplication {
@@ -16,7 +18,7 @@ public class MicroServicesApplication {
 		SpringApplication.run(MicroServicesApplication.class, args);
 	}
 	@Bean
-	CommandLineRunner start(com.bmem.service.repository.TrottinetteRepository trepo){
+	CommandLineRunner start(TrottinetteRepository trepo){
 			return  args->{
 			Stream.of("A","B","C","D").forEach(t ->{
 				com.bmem.service.models.Trottinette trotti = new Trottinette(null, t, (short)0, "");
